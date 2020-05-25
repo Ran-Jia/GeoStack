@@ -1,14 +1,10 @@
 GeoStack
 ====
-***
-## Overview
 
-We can use models of scikit-learn, XGboost, and Keras for stacking.  
-As a feature of this library, **all out-of-fold predictions** can be saved for further analisys after training.
+## Introduction
 
-## What is Stacking?
-
-[Stacking](https://en.wikipedia.org/wiki/Ensemble_learning#Stacking) (sometimes called stacked generalization) involves training a learning algorithm to combine the predictions of several other learning algorithms. The basic idea is to use a pool of base classifiers, then using another classifier to combine their predictions, with the aim of reducing the generalization error. 
+We can use models of scikit-learn, XGboost, and Keras for stacking. As a feature of our project, all out-of-fold predictions can be saved for further analisys after training.
+[Stacking](https://en.wikipedia.org/wiki/Ensemble_learning#Stacking) (stacked generalization) involves training a learning algorithm to combine the predictions of several other learning algorithms. Stacking yields typically better performance than any single trained models. It has been used successfully in regression and classification (Breiman, 1996).The basic idea is to use a pool of base classifiers, then using another classifier to combine their predictions, with the aim of reducing the generalization error. 
 
 
 
@@ -113,7 +109,7 @@ To train and predict the GeoStack model, just run `python main.py`. Note that:
 3. Train each models of Stage 1 for stacking.
 
     ```python
-    m = ModelV1(name="xgb_stage1",
+    m = Model_XGB(name="xgb_stage1",
                 flist=FILES_LIST_stage1,
                 params = XGB_PARAMS,
                 )
@@ -150,7 +146,7 @@ To train and predict the GeoStack model, just run `python main.py`. Note that:
                         ),
                 }
 
-    m = ModelV1_stage2(name="xgb_stage2",
+    m = XGB_stage2(name="xgb_stage2",
                     flist=FILES_LIST_stage2,
                     params = XGB_PARAMS_stage2,
                     )
@@ -161,14 +157,14 @@ To train and predict the GeoStack model, just run `python main.py`. Note that:
 
 
 
-## Files
+## Scripts
 - `data/input`: original train and pred dataset
 - `data/output/stacking_features`: stage 1 features
 - `stacking/base.py`: stacking module
 - `main.py`: train and predict program
 
 
-## Details of scripts
+## Detailed scrips
 
 - `base.py`: 
   - Base models for stacking are defined here (using sklearn.base.BaseEstimator).
@@ -187,9 +183,20 @@ To train and predict the GeoStack model, just run `python main.py`. Note that:
 
 ![Stacking Framework](training_strategy.jpg "Stacking Framework")
 
-## Evaluate stacking model
+## Performance of stacking model
 - We use AUC score and roc to evaluate the models and compare the performance of stacking model with single model.
 
-![Stacking Framework](auc_score.jpg "Stacking Framework")
+![Stacking Framework](auc_score.png "Stacking Framework")
 
-`
+- ***From the model evaluation results, the auc score of the stacking model is `0.93`. Compared with a single model, it achieves better generalization performance.***
+
+## LICENSE
+GPL3.0
+
+## How to contact us?
+-  gwwang@cugb.edu.cn  
+
+-  lvyikai2012@gmail.com
+
+
+-  2101180102@cugb.edu.cn
