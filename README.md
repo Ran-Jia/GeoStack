@@ -6,7 +6,13 @@ GeoStack
 We can use models of scikit-learn, XGboost, and Keras for stacking. As a feature of our project, all out-of-fold predictions can be saved for further analisys after training.
 [Stacking](https://en.wikipedia.org/wiki/Ensemble_learning#Stacking) (stacked generalization) involves training a learning algorithm to combine the predictions of several other learning algorithms. Stacking yields typically better performance than any single trained models. It has been used successfully in regression and classification (Breiman, 1996).The basic idea is to use a pool of base classifiers, then using another classifier to combine their predictions, with the aim of reducing the generalization error. 
 
+## Requirements
 
+- Numpy
+- Pandas
+- XGboost
+- Scikit-learn
+- Tensorflow2.0 or later
 
 ## Usage
 
@@ -176,17 +182,17 @@ To train and predict the GeoStack model, just run `python main.py`. Note that:
 ## Stacking Framework 
 - The stacking framework of our research  
 
-![Stacking Framework](stacking_framework.jpg "Stacking Framework")
+![Stacking Framework](pictures/stacking_framework.jpg "Stacking Framework")
 
 ## Stacking model training strategy
 - The training strategy of our research  
 
-![Stacking Framework](training_strategy.jpg "Stacking Framework")
+![Stacking Framework](pictures/training_strategy.jpg "Stacking Framework")
 
 ## Performance of stacking model
 - We use AUC score and roc to evaluate the models and compare the performance of stacking model with single model.
 
-![Stacking Framework](auc_score.png "Stacking Framework")
+![Stacking Framework](pictures/auc_score.png "Stacking Framework")
 
 - ***From the model evaluation results, the auc score of the stacking model is `0.93`. Compared with a single model, it achieves better generalization performance.***
 
