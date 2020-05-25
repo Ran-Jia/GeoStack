@@ -16,13 +16,13 @@ We can use models of scikit-learn, XGboost, and Keras for stacking. As a feature
 
 ## Usage
 
-To train and predict the GeoStack model, just run `python main.py`. Note that: 
+To train and predict the GeoStack model, just run `python stacking/main.py`. Note that: 
 
 1. Set train and predict dataset under data/input
 
 2. Stacking features from original dataset need to be under data/output/stacking_features
 
-3. Final preidction result in `final_results.csv` is under output folder
+3. Final preidction result in `stacking/final_results.csv` is under output folder
 
 4. We can visulize the prediction results in `GoCAD`softwares
 
@@ -159,22 +159,22 @@ To train and predict the GeoStack model, just run `python main.py`. Note that:
     m.run()
     ```
 
-5. Final result is saved as `xgb_stage2_test.csv`.
+5. Final result is saved as `stacking/output/stacking_features/xgb_stage2_test.csv`.
 
 
 
 ## Scripts
-- `data/input`: original train and pred dataset
-- `data/output/stacking_features`: stage 1 features
-- `stacking/base.py`: stacking module
-- `main.py`: train and predict program
+- `stacking/data/input`: original train and pred dataset
+- `stacking/data/output/stacking_features`: stage 1 features
+- `stacking/stacking/base.py`: stacking module
+- `stacking/main.py`: train and predict program
 
 
 ## Detailed scrips
 
 - `base.py`: 
   - Base models for stacking are defined here (using sklearn.base.BaseEstimator).
-  - Some models are defined here. e.g., XGBoost, Keras, Vowpal Wabbit.
+  - Some models are defined here. e.g., XGBoost, Keras.
   - These models are wrapped as scikit-learn like (using sklearn.base.ClassifierMixin, sklearn.base.RegressorMixin).
   - That is, model class has some methods, fit(), predict_proba(), and predict().
 
